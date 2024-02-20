@@ -1,0 +1,30 @@
+@()
+
+@main("Login"){
+    <h2> Login</h2>
+
+    <form method="get" action="validateGet1">
+        Username: <input type="text" name="username"></input>
+        <br>
+        Password: <input type="password" name="password"> </input>
+        <br>
+        <input type="submit"></input>
+
+    </form>
+
+    <form method="post" action="@routes.taskList1.validateLoginPost">
+        Username: <input type="text" name="username"></input>
+        <br>
+        Password: <input type="password" name="password"> </input>
+        <br>
+        <input type="submit"></input>
+    </form>
+    <form method="post" action="@routes.taskList1.createUser">
+        <h3> create user</h3>
+        Username: <input type="text" name="username"></input>
+        <br>
+        Password: <input type="password" name="password"> </input>
+        <br>
+        <input type="submit"></input>
+    </form>
+}

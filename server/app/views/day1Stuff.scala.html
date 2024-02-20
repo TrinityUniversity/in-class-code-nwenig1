@@ -1,0 +1,19 @@
+@(tbl_headers: Array[String], tbl_data :Array[Array[String]])
+
+Before
+
+@main("day1Stuff"){
+
+<h1> WE are here </h1>
+
+ @for(header<-tbl_headers){
+    <th> @header </th>
+}
+@for(row<-tbl_data){
+    <tr>
+    @for(item<-row){
+    <td> @item </td>
+    }
+</tr>
+}
+}
