@@ -1,4 +1,5 @@
-@()
+@* login1 Template File *@
+@()(implicit request: RequestHeader, flash: Flash)
 
 @main("Login"){
     <h2> Login</h2>
@@ -13,6 +14,7 @@
     </form>
 
     <form method="post" action="@routes.taskList1.validateLoginPost">
+        @helper.CSRF.formField
         Username: <input type="text" name="username"></input>
         <br>
         Password: <input type="password" name="password"> </input>
