@@ -22,7 +22,7 @@ class taskList1 @Inject()(cc:ControllerComponents) extends AbstractController(cc
             val username=args("username").head 
             val password=args("password").head 
             if(TaskListInMemoryModel.validateUser(username, password)){
-            Redirect(routes.taskList1.taskList).withSession("username"-> username)
+            Redirect(routes.taskList1.taskList).withSession("username"-> username).flashing("success" -> "Logged in!")
             }else{
                 Redirect(routes.taskList1.login).flashing("error" -> "Invalid username/password combination.")
             }
@@ -54,5 +54,26 @@ class taskList1 @Inject()(cc:ControllerComponents) extends AbstractController(cc
     def logout = Action{
         Redirect(routes.taskList1.login).withNewSession
     }
-  
+    def addTask = Action { implicit request =>
+        val usernameOption=request.session.get("username")
+        usernameOption.map { username =>
+            val postVals=request.body.asFormUrlEncoded
+            postVals.map{ args =>
+            val task=args("newTask").head
+        TaskListInMemoryModel.addTask(username, task); 
+        Redirect(routes.taskList1.taskList)
+    }.getOrElse(Redirect(routes.taskList1.taskList))
+}.getOrElse(Redirect(routes.taskList1.login))
+}
+  def deleteTask= Action { implicit request =>
+        val usernameOption=request.session.get("username")
+        usernameOption.map { username =>
+            val postVals=request.body.asFormUrlEncoded
+            postVals.map{ args =>
+            val index=args("index").head.toInt
+        TaskListInMemoryModel.removeTask(username, index); 
+        Redirect(routes.taskList1.taskList)
+    }.getOrElse(Redirect(routes.taskList1.taskList))
+}.getOrElse(Redirect(routes.taskList1.login))
+}
 }

@@ -7,7 +7,7 @@ import play.api.mvc._
 
 @Singleton
 class day1Stuff @Inject()(cc:ControllerComponents) extends AbstractController(cc) {
-    def doTheThing=Action{
+    def doTheThing=Action{ implicit request =>
         val table="""team                 won lost min  fgm  fga   3m   3a  ftm  fta   or   tr   as   st   to   bk   pf   pts  tc  ej  ff
 AtlantaHawks         24   30 12811 2361 5055  747 2059 1105 1362  701 2424 1419  412  685  241 1017  6574   0   0   0
 BostonCeltics        41   12 12580 2296 4793  856 2265  935 1155  570 2512 1379  338  632  352  901  6383   0   0   0
