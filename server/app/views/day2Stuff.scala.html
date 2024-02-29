@@ -1,0 +1,10 @@
+@()(implicit request: RequestHeader, flash: Flash)
+@*day2Stuff Template File *@
+
+@main("day2Stuff"){
+    <form method="post" action="@routes.day2Stuff.showName">
+        @helper.CSRF.formField
+        Name: <input type="text" name="username"> </input>
+        <input type="submit"></input> 
+    </form>
+}
