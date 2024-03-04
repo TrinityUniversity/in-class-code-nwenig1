@@ -12,5 +12,10 @@ class ControllerSpec extends PlaySpec{
             val bodyText = contentAsString(result) 
             bodyText must include ("Play and Scala.js")
         }
+        "give back a product" in {
+            val result = controller.product("test", 42).apply(FakeRequest())
+            val bodyTest = contentAsString(result)
+            bodyText mustBe ("Product type is: test, procudt number is: 42")
+        }
     }
 }
