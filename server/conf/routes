@@ -7,21 +7,31 @@ GET        /                             controllers.Application.index
 GET        /login1                       controllers.taskList1.login
 GET        /taskList1                    controllers.taskList1.taskList
 GET        /validateGet1                    controllers.taskList1.validateLoginGet(username, password)
-
+GET         /random                     controllers.Application.randomNumber
+GET         /randomString/:length       controllers.Application.randomString(length: Int)
+# routes for version 1 
 POST        /validatePost1              controllers.taskList1.validateLoginPost
-
 POST        /createUser1                controllers.taskList1.createUser
 GET     /day1Stuff                      controllers.day1Stuff.doTheThing
 GET     /logout                       controllers.taskList1.logout
 POST    /addTask1                       controllers.taskList1.addTask
-
 POST    /deleteTask1                    controllers.taskList1.deleteTask
-
 GET     /day2Stuff                      controllers.day2Stuff.day2
 POST    /day2Stuff                      controllers.day2Stuff.showName
-
 GET     /next                       controllers.day2Stuff.next
-GET     /logout2                       controllers.day2Stuff.logout2
+GET     /logoutday2                      controllers.day2Stuff.logout2
+
+# Routes for version 2
+GET     /load2                      controllers.taskList2.load2
+GET     /login2                     controllers.taskList2.login
+POST     /validate2                  controllers.taskList2.validate
+POST     /create2                    controllers.taskList2.createUser
+GET     /deleteTask2                controllers.taskList2.deleteTask(index : Int)
+POST     /addTask2                   controllers.taskList2.addTask
+GET     /logout2                    controllers.taskList2.logout
+GET     /generatedJS                controllers.taskList2.generatedJS
+
+
 # Prefix must match `play.assets.urlPrefix`
 GET        /assets/*file                 controllers.Assets.at(file)
 GET        /versionedAssets/*file        controllers.Assets.versioned(path="/public", file: Asset)
