@@ -31,6 +31,12 @@ POST     /addTask2                   controllers.taskList2.addTask
 GET     /logout2                    controllers.taskList2.logout
 GET     /generatedJS                controllers.taskList2.generatedJS
 
+# Routes for version 3
+GET     /load3                      controllers.taskList3.load
+POST     /validate3                  controllers.taskList3.validate
+GET     /taskList3                  controllers.taskList3.taskList
+POST    /addTask3                   controllers.taskList3.addTask
+
 
 # Prefix must match `play.assets.urlPrefix`
 GET        /assets/*file                 controllers.Assets.at(file)
