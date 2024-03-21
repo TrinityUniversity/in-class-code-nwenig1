@@ -45,6 +45,9 @@ GET     /chat                       controllers.WebSocketChat.index
 # route below for web socket, put in hidden field to get it to js
 GET     /chatSocket                 controllers.WebSocketChat.socket
 
+# Routes for version 4
+GET     /load4                      controllers.TaskList4.load
+
 
 
 # Prefix must match `play.assets.urlPrefix`

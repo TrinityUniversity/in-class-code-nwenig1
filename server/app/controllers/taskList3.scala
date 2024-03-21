@@ -18,9 +18,9 @@ class taskList3 @Inject()(cc:ControllerComponents) extends AbstractController(cc
         Ok(views.html.version3Main())
     }
     
-    def data = Action {
-        Ok(Json.toJson(Seq("a,", "b", "c")))
-    }
+ //   def data = Action {
+ //       Ok(Json.toJson(Seq("a,", "b", "c")))
+ //   }
     implicit val userDataReads = Json.reads[userData]
 
  //   def withJsonBody[A](f: A=> Result) (implicit request : Request[AnyContent], reads: Reads[A]) = {
