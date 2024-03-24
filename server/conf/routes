@@ -32,13 +32,13 @@ GET     /logout2                    controllers.taskList2.logout
 GET     /generatedJS                controllers.taskList2.generatedJS
 
 # Routes for version 3
-GET     /load3                      controllers.taskList3.load
-POST     /validate3                  controllers.taskList3.validate
-POST     /create3                    controllers.taskList3.createUser
-GET     /taskList3                  controllers.taskList3.taskList
-POST    /addTask3                   controllers.taskList3.addTask
-POST    /deleteTask3                controllers.taskList3.deleteTask
-GET     /logout3                    controllers.taskList3.logout
+GET     /load3                      controllers.TaskList3.load
+POST     /validate3                  controllers.TaskList3.validate
+POST     /create3                    controllers.TaskList3.createUser
+GET     /taskList3                  controllers.TaskList3.taskList
+POST    /addTask3                   controllers.TaskList3.addTask
+POST    /deleteTask3                controllers.TaskList3.delete
+GET     /logout3                    controllers.TaskList3.logout
 
 # Routes for WebSocket chat App
 GET     /chat                       controllers.WebSocketChat.index
