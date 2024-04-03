@@ -39,8 +39,8 @@ extends AbstractController(cc) with HasDatabaseConfigProvider[JdbcProfile] {
     }.getOrElse(Future.successful(Redirect(routes.TaskList3.load)))
   }
 
-  def withSessionUsername(f: String => Result)(implicit request: Request[AnyContent]) = {
-    request.session.get("username").map(f).getOrElse(Ok(Json.toJson(Seq.empty[String])))
+  def withSessionUsername(f: String => Future[Result])(implicit request: Request[AnyContent]) : Future[Result] = {
+    request.session.get("username").map(f).getOrElse(Future.successful(Ok(Json.toJson(Seq.empty[String]))))
   }
 
   def validate = Action.async { implicit request =>
@@ -69,12 +69,11 @@ extends AbstractController(cc) with HasDatabaseConfigProvider[JdbcProfile] {
     }
   }
 
-  def taskList = TODO
-  //Action.async { implicit request =>
-  //  withSessionUsername { username =>
-  //    Ok(Json.toJson(model.getTasks(username)))
-  //  }
-  //}
+  def taskList = Action.async { implicit request =>
+    withSessionUsername { username =>
+      model.getTasks(username).map(tasks => Ok(Json.toJson(tasks)))
+    }
+  }
 
   def addTask = TODO
   //Action.async { implicit request =>
