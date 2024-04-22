@@ -23,7 +23,8 @@ object Version6{
     val headers = new Headers()
     headers.set("Content-Type", "application/json")
     headers.set("Csrf-Token", csrfToken)
-    Fetch.fetch(validateRoute, RequestInit(method = HttpMethod.POST) {
+    Fetch.fetch(validateRoute, RequestInit(method = HttpMethod.POST, mode=RequestMode.cors,
+    headers = headers, body = ) {
         
     }).then(res => res.json()).then(data => {
         if(data){
