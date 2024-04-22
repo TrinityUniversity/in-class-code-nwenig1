@@ -9,7 +9,7 @@ import slinky.core._
 import slinky.web.ReactDOM
 import slinky.web.html._
 import scala.scalajs.js.annotation.JSExportTopLevel
-
+//comment 
 object ScalaJSExample {
 
   def main(args: Array[String]): Unit = {
